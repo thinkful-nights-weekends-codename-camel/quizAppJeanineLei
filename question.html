@@ -14,7 +14,28 @@
   <link rel="stylesheet" type="text/css" media="screen" href="final.css">
 </head>
 <body>
-  
+  <main role="main">
+    <header role="banner">
+      <h1>Will you survive the Zombie Appocolypse?</h1>
+    </header>
+    <section class="lightbox" aria-label="lightbox">
+      <p>Which of the following are a must have in your survival kit?</p>
+    </section>
+    <form action="" class="js-answer-form">
+      
+      <label for="${answer1}" class="hide"></label>
+        <input type="button" class="answerbtn" name="${answer1}" data-answer="1" value="${answer1}"></input>
+
+      <label for="${answer2}" class="hide"></label>
+        <input type="button" class="answerbtn" name="${answer2}" data-answer="2" value="${answer2}"></input>
+
+      <label for="${answer3}" class="hide"></label>
+        <input type="button" class="answerbtn" name="${answer3}" data-answer="3" value="${answer3}"></input>
+   
+      <label for="${answer4}" class="hide"></label>
+        <input type="button" class="answerbtn" name="${answer4}" data-answer="4" value="${answer4}"></input>
+    </form>
+  </main>
   <script src="//code.jquery.com/jquery.min.js"></script>
   <script src="main.js"></script>
 </body>

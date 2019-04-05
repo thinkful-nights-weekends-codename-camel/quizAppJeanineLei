@@ -14,7 +14,20 @@
   <link rel="stylesheet" type="text/css" media="screen" href="final.css">
 </head>
 <body>
-  
+  <main role="main">
+    <header role="banner">
+      <h1>Will you survive the Zombie Appocolypse?</h1>
+    </header>
+    <section class="lightbox" aria-label="lightbox">
+      <h2 class="score">Score:${score} <span>Will You Live?</span> Question:${question}/10</h2>
+      <div class="js-answer-view">
+        <!-- one of two messages will display -->
+        <h2>${resultMessage}</h2>
+        <p>${detailInfo}</p>
+      </div>
+    </section>
+    <button role="next" class="startbtn" type="button">Keep going!</button>
+  </main>
   <script src="//code.jquery.com/jquery.min.js"></script>
   <script src="main.js"></script>
 </body>
