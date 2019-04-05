@@ -1,39 +1,87 @@
 # Zombie Survival quiz
 
-Questions:
+Questions/answers:
 
 1. Which of the following are a must have in your survival kit?
-A)Water Filtration device
-B)cell phone
-C)iPad
-D)hotplate
+A) Water Filtration device
+B) Cell phone
+C) iPad
+D) Hotplate
 Answer)water filters-clean water is essential to your life and health
 
 2. What weapon should you never be without?
-A)Machete or other long sturdy blade
-B)Pistol
-C)Bear Trap
-D)grenades
+A) Machete or other long sturdy blade
+B) Pistol
+C) Bear Trap
+D) Grenades
 Answer) you need a strong blade to take off heads, break open 
 
 3. How will you protect yourself from zombie bites or scratches?
-A)light weight body armor
-B)hat and gloves
-C) military field armor and helmet
-D)heavy duty clothes like firefighter gear
+A) Light weight body armor
+B) Hat and gloves
+C) Military field armor and helmet
+D) Heavy duty clothes like firefighter gear
 Answer) Armor that is light and protective from bites/scratches, and animal attacks
         will keep you whole and healthy without wearing you down with extra weight as you move around.
 
 4. What is the only/best way to ensure a zombie really dies?
-A)Take off their head/destroy brain
-B)stake to the heart
-C)chain them in the sun
-D)drown them
+A) Take off their head/destroy brain
+B) Stake to the heart
+C) Chain them in the sun
+D) Drown them
 Answer) decaptitation or brain destruction is the only sure way to keep a zombie down.
+	Gotta make sure that brain tissue is gone!
 
 5. Most reasonable primary weapon to carry?
-A)crossbow
-B)50 caliber machine gun
-C)m16
-D)Grenagde launcher
+A) Crossbow
+B) 50 caliber machine gun
+C) M16
+D) Grenagde launcher
 Answer) Crossbow bolts are re-useable, light weight, and can be made on the run as long ase you can find wood or other materials you can use.
+
+6. What should you be eating?
+A) Frozen dinners
+B) Cereal
+C) MREs
+D) Canned Food
+Answer) MREs - store well and are simple to prepare for when you're on the go.
+
+7. How will you be traveling?
+A) In car
+B) Motorcycle
+C) In a heavily armored vehicle
+D) Walk
+Answer) Walk - Anything needing gasolene to run won't last you a long time. 
+
+8. Should you travel alone or others?
+A) Pairs 
+B) With your dog or owl
+C) Groups
+D) Forever Alone
+Answer) Groups - so you can outrun the slowest one
+
+9. What basic hygiene should you maintain?
+A) Teeth, hands, feet, private areas
+B) Body
+C) Face
+D) Eyes and Mouth
+Answer) Teeth, hands, feet, private areas - Keeping it really essential - making sure your teeth don't hurt, your hands, feet, and privates are clean will prevent infections and sickness so you can keep on going.
+
+10. If you were bitten or scratched, what will you do?
+A) Disinfect with alcohol or hydrogen peroxide
+B) Burn the affected area
+C) Cut it off
+D) Hide your injury and hope it goes away
+Answer) Cut it off - amputating your affected limb might delay or stop the process, but you'll never be sure. If you were bitten or scratched on your face... well... disinfect and pray.
+
+
+Results of Quiz
+----------------
+- 1-4 out of 10 : You're doomed! Hopefully you'll do better at the next zombie apocalypse
+
+- 5-8 out of 10 : You MIGHT survive if you're with someone who knows better
+
+- 9 or 10  :  You're a Grade A zombie hunter! You'll survive this zombie apocalypse and many more!
+
+
+
