@@ -1,5 +1,7 @@
 # Zombie Survival quiz Jeanine and Lei
 
+![alt text](https://raw.githubusercontent.com/thinkful-nights-weekends-codename-camel/quizAppJeanineLei/master/NapkinDesign.jpg)
+
 User experience
 -----------------
 * The starting screen should have a button that users can click to start the quiz.
