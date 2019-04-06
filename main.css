@@ -4,7 +4,30 @@ html {
 /* *, *:before, *:after {
   box-sizing: inherit;
 } */
-body{
-  background-image: url(img/blackandwhitezombiebus.jpg)
-  
+body {
+  display: flexbox;
+  background-image: url(img/blackandwhitezombiebus.jpg);
+  background-size: cover;
+}
+h1 {
+  text-align: center;
+}
+
+.lightbox {
+width: 100%;
+height: 2.5rem;
+padding-top:.5rem;
+text-align: center;
+background-color: lightgray;
+margin-top: 5%;
+}
+
+.startbtn {
+  display: flex;
+  height: 2rem;
+  color: red;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
 }
