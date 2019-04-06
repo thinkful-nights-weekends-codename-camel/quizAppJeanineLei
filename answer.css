@@ -1,3 +1,26 @@
 html {
     box-sizing: border-box;
   }
+
+.score {
+  margin: 0;
+  padding-top: 1%;
+}
+
+.result,
+.detail {
+  margin-top: 5%;
+  background-color: rgb(177, 177, 177);
+  padding: 2% 0;
+}
+
+.startbtn {
+  display: flex;
+  height: 2rem;
+  color: red;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 33%;
+  border-radius: 3px;
+}
