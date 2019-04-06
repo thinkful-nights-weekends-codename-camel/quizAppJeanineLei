@@ -263,7 +263,6 @@ function quizReset() {
 
 function handleStartQuiz() {
   startQuizButton();
-  renderQuestionPage();
   answerButtonPress();
   evaluateAnswer();
   displayAnswer();
