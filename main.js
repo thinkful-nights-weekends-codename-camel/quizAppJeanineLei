@@ -5,14 +5,14 @@ const questionBank = [
   {
       question: "Which of the following are a must have in your survival kit?",
       answers: {
-          answer1: "Water Filtration device",
+          answer1: "Water Filtration Device",
           answer2: "Cell phone",
           answer3: "iPad",
           answer4: "Hotplate",
           getCorrect: function() {
               return this.answer1;
           },
-          correctDetail: `Water filters-clean water is essential to your life and health. CLean water is needed for drinking, cooking, and bathing.`
+          correctDetail: `Water filters-clean water is essential to your life and health. Clean water is needed for drinking, cooking, and bathing.`
       },
       imageUrl: "img/waterfilters.jpeg",
       imageAlt: "a water filtration device that can be used while camping or running from hoards of the undead."
@@ -157,3 +157,49 @@ const questionBank = [
               },          
 
 ];
+
+function startQuizButton() {
+  // event listener for quiz start button only
+  console.log('startQuizButton ran');
+}
+
+function renderQuestionPage() {
+  // displays question (from bank) and answers for question
+  console.log('renderQuestionPage ran');
+}
+
+function answerButtonPress() {
+  // event listener for user click answer
+  console.log('answerButtonPress ran');
+}
+
+function evaluateAnswer() {
+  // checks if user's answer is correct or incorrect
+  console.log('evaluateAnswer ran');
+}
+
+function displayAnswer() {
+  // displays answer details
+  console.log('displayAnswer ran');
+}
+
+function nextButtonPress() {
+    // event listener for user click next
+    console.log('nextButtonPress ran');
+    // iterates to next question
+}
+
+function displayEndResult() {
+  // 1 of 3 message pages (doom, maybe, yay)
+  console.log('displayAnswer ran'); 
+}
+
+function quizReset() {
+  // resets quiz to start
+  console.log('quizReset ran');
+}
+
+
+function handleStartQuiz() {
+  // when page loads, call this
+}
