@@ -19,11 +19,11 @@
     <header role="banner">
       <h1>Will you survive the Zombie Apocalypse?</h1>
     </header>
-    <div class="lightbox" aria-label="lightbox">
-      <!-- final score goes here -->
+    <section class="lightbox" aria-label="lightbox">
+      <h2 class="score">Score:${score} <span>Will You Live?</span> Question:${question}/10</h2>
       <!-- $resultsmessage1 2 or 3 will be used (Doomed, Maybe, Survive!)-->
-      <p>${resultsmessage1}</p>
-    </div>
+      <p class="result">${resultsmessage1}</p>
+    </section>
     <button role="start" class="startbtn" type="button"><a href="index.html">Retest your knowledge?</a></button>
   </main>
   <script src="//code.jquery.com/jquery.min.js"></script>

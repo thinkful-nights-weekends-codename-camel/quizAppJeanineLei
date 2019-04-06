@@ -6,8 +6,11 @@ html {
 } */
 body {
   display: flexbox;
-  background-image: url(img/blackandwhitezombiebus.jpg);
+  background-image: 
+    url(img/blackandwhitezombiebus.jpg);
   background-size: cover;
+  background-repeat: no-repeat;
+  background-color: grey;
 }
 h1 {
   text-align: center;
@@ -16,10 +19,15 @@ h1 {
 .lightbox {
 width: 100%;
 height: 2.5rem;
-padding-top:.5rem;
 text-align: center;
 background-color: lightgray;
-margin-top: 5%;
+margin-top: 2.5%;
+margin-bottom: 2.5%;
+}
+
+.headline {
+  margin: 0px;
+  padding-top: 1%;
 }
 
 .startbtn {
@@ -29,5 +37,6 @@ margin-top: 5%;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 5%;
+  margin-top: 33%;
+  border-radius: 3px;
 }
