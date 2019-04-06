@@ -203,67 +203,31 @@ function startQuizButton() {
   });
 }
 
-function buildQuestionView(STORE){
-  let question= STORE[0].question;
-  let answer1=STORE[0].answers.answer1;
-  let answer2=STORE[0].answers.answer2;
-  let answer3=STORE[0].answers.answer3;
-  let answer4=STORE[0].answers.answer4;
-  let imageUrl=STORE[0].imageUrl;
-  let imageAlt=STORE[0].imageAlt;
+function accessStore(storeData) {
+  return `
+  <section class="lightbox" aria-label="lightbox">
+    <p class="headline">${storeData[0].question}</p>
+  </section>
+  <form action="" class="js-answer-form">
+    <label for="answer-1" class="hide"></label>
+    <input type="button" class="answerbtn" name="answer-1" data-answer="1" value="${storeData[0].answers.answer1}"></input>
 
-  <main role="main">
-    <header role="banner">
-      <h1>Will you survive the Zombie Apocalypse?</h1>
-    </header>
-    <section class="lightbox" aria-label="lightbox">
-      <p class="headline">Which of the following are a must have in your survival kit?</p>
-    </section>
-    <form action="" class="js-answer-form">
-      
-      <label for="${answer1}" class="hide"></label>
-      <input type="button" class="answerbtn" name="${answer1}" data-answer="1" value="${answer1}"></input>
+    <label for="answer-2" class="hide"></label>
+    <input type="button" class="answerbtn" name="answer-2" data-answer="2" value="${storeData[0].answers.answer2}"></input>
 
-      <label for="${answer2}" class="hide"></label>
-      <input type="button" class="answerbtn" name="${answer2}" data-answer="2" value="${answer2}"></input>
-
-      <label for="${answer3}" class="hide"></label>
-      <input type="button" class="answerbtn" name="${answer3}" data-answer="3" value="${answer3}"></input>
-   
-      <label for="${answer4}" class="hide"></label>
-      <input type="button" class="answerbtn" name="${answer4}" data-answer="4" value="${answer4}"></input>
-    </form>
-  </main>
-
+    <label for="answer-3" class="hide"></label>
+    <input type="button" class="answerbtn" name="answer-3" data-answer="3" value="${storeData[0].answers.answer3}"></input>
+ 
+    <label for="answer-4" class="hide"></label>
+    <input type="button" class="answerbtn" name="answer-4" data-answer="4" value="${storeData[0].answers.answer4}"></input>
+  </form>`
 }
-
 
 function renderQuestionPage() {
   // displays question (from bank) and answers for question
   console.log('renderQuestionPage ran');
-  const renderQuestion = `
-  <main role="main">
-  <header role="banner">
-    <h1>Will you survive the Zombie Apocalypse?</h1>
-  </header>
-  <section class="lightbox" aria-label="lightbox">
-    <p class="headline">Which of the following are a must have in your survival kit?</p>
-  </section>
-  <form action="" class="js-answer-form">
-    <label for="${answer1}" class="hide"></label>
-    <input type="button" class="answerbtn" name="${answer1}" data-answer="1" value="${answer1}"></input>
-
-    <label for="${answer2}" class="hide"></label>
-    <input type="button" class="answerbtn" name="${answer2}" data-answer="2" value="${answer2}"></input>
-
-    <label for="${answer3}" class="hide"></label>
-    <input type="button" class="answerbtn" name="${answer3}" data-answer="3" value="${answer3}"></input>
- 
-    <label for="${answer4}" class="hide"></label>
-    <input type="button" class="answerbtn" name="${answer4}" data-answer="4" value="${answer4}"></input>
-  </form>
-  </main>`;
-  return renderQuestion;
+  const renderQuestion = accessStore(STORE);
+  $('.js-view').html(renderQuestion);
 }
 
 function answerButtonPress() {
