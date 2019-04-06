@@ -157,6 +157,7 @@ const questionBank = [
               },          
 
 ];
+
 let score =0;
 let answerCorrect=true;
 let resultMessage='';
@@ -195,7 +196,11 @@ const STORE= [{
 
 function startQuizButton() {
   // event listener for quiz start button only
-  console.log('startQuizButton ran');
+  $('.startbtn').on('click', function(event) {
+    event.preventDefault();
+    console.log('startQuizButton ran');
+    renderQuestionPage();
+  });
 }
 
 function renderQuestionPage() {
@@ -234,7 +239,15 @@ function quizReset() {
   console.log('quizReset ran');
 }
 
-
 function handleStartQuiz() {
+  startQuizButton();
+  renderQuestionPage();
+  answerButtonPress();
+  evaluateAnswer();
+  displayAnswer();
+  nextButtonPress();
+  displayEndResult();
+  quizReset();
   // when page loads, call this
 }
+$(handleStartQuiz);
