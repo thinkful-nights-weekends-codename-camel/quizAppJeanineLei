@@ -56,7 +56,7 @@ const questionBank = [
           answer3: "Silver bullet to the heart",
           answer4: "Take off their head/destroy brain",
           getCorrect: function() {
-              return this.answer2;
+              return this.answer4;
           },
           correctDetail: `Decaptitation or brain destruction is the only sure way to keep a zombie down.
           Gotta make sure that brain tissue is gone!`
@@ -114,7 +114,7 @@ const questionBank = [
           question: "Should you travel alone or others?",
             answers: {
                 answer1: "Pairs",
-                answer2: "groups",
+                answer2: "Groups",
                 answer3: "Forever alone",
                 answer4: "With your trusty dog or owl",
                 getCorrect: function() {
@@ -128,9 +128,9 @@ const questionBank = [
           {  
             question: "How will you keep warm at night? A campfire of course but how will you start one?",
               answers: {
-                  answer1: "rubbing two sticks together",
+                  answer1: "Rubbing two sticks together",
                   answer2: "Duraflame",
-                  answer3: "Face and handsMagnesium fire starter",
+                  answer3: "Face and hands Magnesium fire starter",
                   answer4: "My trusty Zippo or course!",
                   getCorrect: function() {
                       return this.answer3;
@@ -146,9 +146,9 @@ const questionBank = [
                     answer1: "Amputate",
                     answer2: "Disinfect with rubbing alcohol, peroxide or other cleaners",
                     answer3: "Burn the infected area",
-                    answer4: "Keep going",
+                    answer4: "Continue on as if nothing happened",
                     getCorrect: function() {
-                        return this.answer3;
+                        return this.answer1;
                     },
                     correctDetail: `Cut it off if it's small as that is the best way to stop the spread of the virus. Of course, many people die from field amputations so-don't get bitten!`
                 },
@@ -158,16 +158,16 @@ const questionBank = [
 
 ];
 
-let score =0;
+let score=0;
 let currentQuestion=1;
 // let answerCorrect=true;
 // let resultMessage='';
-let storeIndex = 0;
+let storeIndex=0;
 
 const youWillDie={
   image:"img/walking-dead-zombies-BlackWhite.jpg",
   imageAltText: "your new family-zombie hoard",
-  message:"Sorry to say, you are likely to be joining a zombie hoard as your new family unit! Enjoy being Undead!"
+  message:"Sorry to say, you are likely to be joining a zombie horde as your new family unit! Enjoy being Undead!"
 };
 const youMightLive={
   image:"img/readyornot.png",
@@ -192,7 +192,8 @@ function startQuizButton() {
 function accessStore(storeData) {
   return `
   <section class="lightbox" aria-label="lightbox">
-    <p class="headline">${storeData[storeIndex].question}</p>
+  <h2 class="score">Score:${score} <span>Will You Live?</span> Question:${currentQuestion}/10</h2>
+  <p class="headline">${storeData[storeIndex].question}</p>
   </section>
   <form action="" class="js-answer-form">
   
@@ -215,12 +216,14 @@ function renderQuestionPage() {
   console.log('renderQuestionPage ran');
   const renderQuestion = accessStore(questionBank);
   $('.js-view').html(renderQuestion);
+  // answerButtonPress();
 }
 
 function answerButtonPress() {
-  // event listener for user click answer
+  // set up event listener for user click answer
   console.log('answerButtonPress ran');
   $('.js-view').on('click', '.answerbtn', function(event) {
+    // handle answer button 
     let userAnswer = $(this).val();
     evaluateAnswer(userAnswer);
   });
@@ -258,7 +261,7 @@ function answerCorrectDetail() {
     <p class="detail">${storeAnswerDetail}</p>
     </div>
   </section>
-  <button role="next" class="startbtn" type="button">Keep going!</button>`;
+  <button role="next" class="nextbtn" type="button">Keep going!</button>`;
 }
 
 function answerWrongDetail() {
@@ -272,7 +275,7 @@ function answerWrongDetail() {
     <p class="detail">${storeAnswerDetail}</p>
     </div>
   </section>
-  <button role="next" class="startbtn" type="button">Keep going!</button>`;
+  <button role="next" class="nextbtn" type="button">Keep going!</button>`;
 }
 
 function displayAnswerCorrect() {
@@ -292,27 +295,72 @@ function displayAnswerWrong() {
 function nextButtonPress() {
     // event listener for user click next
     console.log('nextButtonPress ran');
-    // iterates to next question
-    currentQuestion;  // increment after user clicks next
-    storeIndex; // increment after user clicks next
+    $('.js-view').on('click', '.nextbtn', function(event) {
+      if (storeIndex < questionBank.length - 1) {  // stop storeIndex at 9
+        storeIndex++; // last iteration should be 9
+        currentQuestion++;
+        renderQuestionPage();
+      } else {
+        displayEndResult();
+      }
+    });
+}
+
+function resultDoomed() {
+  return `<section class="lightbox" aria-label="lightbox">
+  <h2 class="score">Score:${score} <span>Will You Live?</span> Question:10/10</h2>
+  <p class="result">${youWillDie.message}</p>
+  <img src=${youWillDie.image} alt=${youWillDie.imageAltText}>
+  </section>
+  <button role="start" class="startbtn" type="button">Retest your knowledge?</button>`;
+}
+
+function resultMaybe() {
+  return `<section class="lightbox" aria-label="lightbox">
+  <h2 class="score">Score:${score} <span>Will You Live?</span> Question:10/10</h2>
+  <p class="result">${youMightLive.message}</p>
+  <img src=${youMightLive.image} alt=${youMightLive.imageAltText}>
+  </section>
+  <button role="start" class="startbtn" type="button">Retest your knowledge?</button>`;
+}
+
+function resultSurvive() {
+  return `<section class="lightbox" aria-label="lightbox">
+  <h2 class="score">Score:${score} <span>Will You Live?</span> Question:10/10</h2>
+  <p class="result">${congratulations.message}</p>
+  <img src=${congratulations.image} alt=${congratulations.imageAltText}>
+  </section>
+  <button role="start" class="startbtn" type="button">Retest your knowledge?</button>`;
 }
 
 function displayEndResult() {
   // 1 of 3 message pages (doom, maybe, yay)
-  console.log('displayEnd ran'); 
+  console.log('displayEndResult ran'); 
+  let displaySurvive = resultSurvive();
+  let displayMaybe = resultMaybe();
+  let displayDoomed = resultDoomed();
+  if (score > 8) {
+    $('.js-view').html(displaySurvive);
+    quizReset();
+  } else if (score < 7 && score > 4) {
+    $('.js-view').html(displayMaybe);
+    quizReset();
+  } else {
+    $('.js-view').html(displayDoomed);
+    quizReset();
+  }
 }
 
 function quizReset() {
   // resets quiz to start
   console.log('quizReset ran');
+
 }
 
 function handleStartQuiz() {
   startQuizButton();
   answerButtonPress();
   nextButtonPress();
-  displayEndResult();
-  quizReset();
   // when page loads, call this
 }
 $(handleStartQuiz);
