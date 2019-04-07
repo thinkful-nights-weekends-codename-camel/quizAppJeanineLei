@@ -62,7 +62,7 @@ const questionBank = [
           Gotta make sure that brain tissue is gone!`
       },
       imageUrl: "img/decapitation.jpg",
-      imageAlt: "Drawing depicting a zombie as it's head is severed from the body and the adcice that the 'swing requires lots of room and the right weapon'."
+      imageAlt: "Drawing depicting a zombie as it's head is severed from the body and the advice that the 'swing requires lots of room and the right weapon'."
     },
     
   {  
@@ -160,8 +160,8 @@ const questionBank = [
 
 let score =0;
 let currentQuestion=1;
-let answerCorrect=true;
-let resultMessage='';
+// let answerCorrect=true;
+// let resultMessage='';
 let storeIndex = 0;
 
 const youWillDie={
@@ -220,7 +220,7 @@ function renderQuestionPage() {
 function answerButtonPress() {
   // event listener for user click answer
   console.log('answerButtonPress ran');
-  $('.js-answer-form').on('click', '.answerbtn', function(event) {
+  $('.js-view').on('click', '.answerbtn', function(event) {
     let userAnswer = $(this).val();
     evaluateAnswer(userAnswer);
   });
@@ -243,27 +243,33 @@ function evaluateAnswer(compareAnswer) {
   }
 }
 
-function answerCorrectDetail(storeData) {
+function storeDetail(storeData) {
+  return storeData[storeIndex].answers.correctDetail;
+}
+
+function answerCorrectDetail() {
+  let storeAnswerDetail = storeDetail(questionBank);
   return `
   <section class="lightbox" aria-label="lightbox">
   <h2 class="score">Score:${score} <span>Will You Live?</span> Question:${currentQuestion}/10</h2>
     <div class="js-answer-view">
     <!-- one of two messages will display (correct/incorrect) -->
     <p class="result">"Correct! You've got some survival instinct in ya"</p>
-    <p class="detail">${storeData[storeIndex].answer.correctDetail}</p>
+    <p class="detail">${storeAnswerDetail}</p>
     </div>
   </section>
   <button role="next" class="startbtn" type="button">Keep going!</button>`;
 }
 
-function answerWrongDetail(storeData) {
+function answerWrongDetail() {
+  let storeAnswerDetail = storeDetail(questionBank);
   return `
   <section class="lightbox" aria-label="lightbox">
   <h2 class="score">Score:${score} <span>Will You Live?</span> Question:${currentQuestion}/10</h2>
     <div class="js-answer-view">
     <!-- one of two messages will display (correct/incorrect) -->
-    <p class="result">"Oohhh... You might want to rethink your survival skills"</p>
-    <p class="detail">${storeData[storeIndex].answer.correctDetail}</p>
+    <p class="result">"Oohhh... You might want to re-think your survival strategy"</p>
+    <p class="detail">${storeAnswerDetail}</p>
     </div>
   </section>
   <button role="next" class="startbtn" type="button">Keep going!</button>`;
@@ -285,9 +291,10 @@ function displayAnswerWrong() {
 
 function nextButtonPress() {
     // event listener for user click next
-    currentQuestion++;
     console.log('nextButtonPress ran');
     // iterates to next question
+    currentQuestion;  // increment after user clicks next
+    storeIndex; // increment after user clicks next
 }
 
 function displayEndResult() {
@@ -302,6 +309,7 @@ function quizReset() {
 
 function handleStartQuiz() {
   startQuizButton();
+  answerButtonPress();
   nextButtonPress();
   displayEndResult();
   quizReset();
