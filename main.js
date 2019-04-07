@@ -159,9 +159,11 @@ const questionBank = [
 ];
 
 let score =0;
+let currentQuestion=1;
 let answerCorrect=true;
 let resultMessage='';
-let currentQuestion=0;
+let storeIndex = 0;
+
 const youWillDie={
   image:"img/walking-dead-zombies-BlackWhite.jpg",
   imageAltText: "your new family-zombie hoard",
@@ -178,27 +180,11 @@ const congratulations={
   message:"Congratulations! You are verfied as a survivor of the coming hordes! Look out for folks who have it together and might need some help. Enjoy your success!"
 };
 
-const STORE= [{
-  question:"Which of the following are a must have in your survival kit?",
-  answers:{
-    answer1: "Water Filtration Device",
-    answer2: "Cell phone",
-    answer3: "iPad",
-    answer4: "Hotplate",
-    getCorrect: function(){
-      return this.answer1
-    },
-    correctDetail:"Water filters-clean water is essential to your life and health. Clean water is needed for drinking, cooking, and bathing."
-    },
-    imageUrl: "img/waterfilters.jpeg",
-    imageAlt: "a water filtration device that can be used while camping or running from hordes of the undead."
-}];
-
 function startQuizButton() {
   // event listener for quiz start button only
   $('.startbtn').on('click', function(event) {
     event.preventDefault();
-    console.log('startQuizButton ran');
+    // console.log('startQuizButton ran');
     renderQuestionPage();
   });
 }
@@ -206,55 +192,107 @@ function startQuizButton() {
 function accessStore(storeData) {
   return `
   <section class="lightbox" aria-label="lightbox">
-    <p class="headline">${storeData[0].question}</p>
+    <p class="headline">${storeData[storeIndex].question}</p>
   </section>
   <form action="" class="js-answer-form">
   
     <label for="answer-1" class="hide"></label>
-    <input type="button" class="answerbtn" name="answer-1" data-answer="1" value="${storeData[0].answers.answer1}"></input>
+    <input type="button" class="answerbtn" name="answer-1" data-answer="1" value="${storeData[storeIndex].answers.answer1}"></input>
 
     <label for="answer-2" class="hide"></label>
-    <input type="button" class="answerbtn" name="answer-2" data-answer="2" value="${storeData[0].answers.answer2}"></input>
+    <input type="button" class="answerbtn" name="answer-2" data-answer="2" value="${storeData[storeIndex].answers.answer2}"></input>
 
     <label for="answer-3" class="hide"></label>
-    <input type="button" class="answerbtn" name="answer-3" data-answer="3" value="${storeData[0].answers.answer3}"></input>
+    <input type="button" class="answerbtn" name="answer-3" data-answer="3" value="${storeData[storeIndex].answers.answer3}"></input>
  
     <label for="answer-4" class="hide"></label>
-    <input type="button" class="answerbtn" name="answer-4" data-answer="4" value="${storeData[0].answers.answer4}"></input>
+    <input type="button" class="answerbtn" name="answer-4" data-answer="4" value="${storeData[storeIndex].answers.answer4}"></input>
   </form>`;
 }
 
 function renderQuestionPage() {
   // displays question (from bank) and answers for question
   console.log('renderQuestionPage ran');
-  const renderQuestion = accessStore(STORE);
+  const renderQuestion = accessStore(questionBank);
   $('.js-view').html(renderQuestion);
 }
 
 function answerButtonPress() {
   // event listener for user click answer
   console.log('answerButtonPress ran');
+  $('.js-answer-form').on('click', '.answerbtn', function(event) {
+    let userAnswer = $(this).val();
+    evaluateAnswer(userAnswer);
+  });
 }
 
-function evaluateAnswer() {
+function storeAnswer(storeData) {
+  // access storage's correct answer method
+  return storeData[storeIndex].answers.getCorrect();
+}
+
+function evaluateAnswer(compareAnswer) {
   // checks if user's answer is correct or incorrect
-  console.log('evaluateAnswer ran');
+  // console.log('evaluateAnswer ran');
+  let correctAnswer = storeAnswer(questionBank);
+  if (compareAnswer === correctAnswer) {
+    score++;
+    displayAnswerCorrect();
+  } else {
+    displayAnswerWrong();
+  }
 }
 
-function displayAnswer() {
-  // displays answer details
-  console.log('displayAnswer ran');
+function answerCorrectDetail(storeData) {
+  return `
+  <section class="lightbox" aria-label="lightbox">
+  <h2 class="score">Score:${score} <span>Will You Live?</span> Question:${currentQuestion}/10</h2>
+    <div class="js-answer-view">
+    <!-- one of two messages will display (correct/incorrect) -->
+    <p class="result">"Correct! You've got some survival instinct in ya"</p>
+    <p class="detail">${storeData[storeIndex].answer.correctDetail}</p>
+    </div>
+  </section>
+  <button role="next" class="startbtn" type="button">Keep going!</button>`;
+}
+
+function answerWrongDetail(storeData) {
+  return `
+  <section class="lightbox" aria-label="lightbox">
+  <h2 class="score">Score:${score} <span>Will You Live?</span> Question:${currentQuestion}/10</h2>
+    <div class="js-answer-view">
+    <!-- one of two messages will display (correct/incorrect) -->
+    <p class="result">"Oohhh... You might want to rethink your survival skills"</p>
+    <p class="detail">${storeData[storeIndex].answer.correctDetail}</p>
+    </div>
+  </section>
+  <button role="next" class="startbtn" type="button">Keep going!</button>`;
+}
+
+function displayAnswerCorrect() {
+  // displays answer details when user selects right answer
+  console.log('displayAnswerCorrect ran');
+  let renderAnswerCorrect = answerCorrectDetail(questionBank);
+  $('.js-view').html(renderAnswerCorrect);
+}
+
+function displayAnswerWrong() {
+  // displays answer details when user selects wrong answer
+  console.log('displayAnswerWrong ran');
+  let renderAnswerWrong = answerWrongDetail(questionBank);
+  $('.js-view').html(renderAnswerWrong);
 }
 
 function nextButtonPress() {
     // event listener for user click next
+    currentQuestion++;
     console.log('nextButtonPress ran');
     // iterates to next question
 }
 
 function displayEndResult() {
   // 1 of 3 message pages (doom, maybe, yay)
-  console.log('displayAnswer ran'); 
+  console.log('displayEnd ran'); 
 }
 
 function quizReset() {
@@ -264,9 +302,6 @@ function quizReset() {
 
 function handleStartQuiz() {
   startQuizButton();
-  answerButtonPress();
-  evaluateAnswer();
-  displayAnswer();
   nextButtonPress();
   displayEndResult();
   quizReset();
