@@ -5,17 +5,17 @@ const questionBank = [
   {
       question: "Which of the following are a must have in your survival kit?",
       answers: {
-          answer1: "Water Filtration device",
+          answer1: "Water Filtration Device",
           answer2: "Cell phone",
           answer3: "iPad",
           answer4: "Hotplate",
           getCorrect: function() {
               return this.answer1;
           },
-          correctDetail: `Water filters-clean water is essential to your life and health. CLean water is needed for drinking, cooking, and bathing.`
+          correctDetail: `Water filters-clean water is essential to your life and health. Clean water is needed for drinking, cooking, and bathing.`
       },
       imageUrl: "img/waterfilters.jpeg",
-      imageAlt: "a water filtration device that can be used while camping or running from hoards of the undead."
+      imageAlt: "a water filtration device that can be used while camping or running from hordes of the undead."
     },
     {
     question: "What weapon should you never be without?",
@@ -123,7 +123,7 @@ const questionBank = [
                 correctDetail: `Groups -safety in numbers and you can have someone slower than you to outrun and leave behind.`
             },
             imageUrl: "img/huntalone.jpg",
-            imageAlt: "meme showing Jack Sparrow being chased by a hoard. Text is 'So you decided to play zombie mode yourself, Eh? Wow you have balls."
+            imageAlt: "meme showing Jack Sparrow being chased by a horde. Text is 'So you decided to play zombie mode yourself, Eh? Wow you have balls."
           },
           {  
             question: "How will you keep warm at night? A campfire of course but how will you start one?",
@@ -157,3 +157,118 @@ const questionBank = [
               },          
 
 ];
+
+let score =0;
+let answerCorrect=true;
+let resultMessage='';
+let currentQuestion=0;
+const youWillDie={
+  image:"img/walking-dead-zombies-BlackWhite.jpg",
+  imageAltText: "your new family-zombie hoard",
+  message:"Sorry to say, you are likely to be joining a zombie hoard as your new family unit! Enjoy being Undead!"
+};
+const youMightLive={
+  image:"img/readyornot.png",
+  imageAltText:"three zombie hunters at the ready and one person they can use as a distraction.",
+  message:"Well, you MAY make it through. You will need to meet up with some like-minded folks and learn from them. Also, find someone to join up with who is slow enough that you can out run them...just in case."
+};
+const congratulations={
+  image:"img/verifiedsuccessful._QL70_.jpg",
+  imageAltText:"patch for a verified succesful Zombie hunter",
+  message:"Congratulations! You are verfied as a survivor of the coming hordes! Look out for folks who have it together and might need some help. Enjoy your success!"
+};
+
+const STORE= [{
+  question:"Which of the following are a must have in your survival kit?",
+  answers:{
+    answer1: "Water Filtration Device",
+    answer2: "Cell phone",
+    answer3: "iPad",
+    answer4: "Hotplate",
+    getCorrect: function(){
+      return this.answer1
+    },
+    correctDetail:"Water filters-clean water is essential to your life and health. Clean water is needed for drinking, cooking, and bathing."
+    },
+    imageUrl: "img/waterfilters.jpeg",
+    imageAlt: "a water filtration device that can be used while camping or running from hordes of the undead."
+}];
+
+function startQuizButton() {
+  // event listener for quiz start button only
+  $('.startbtn').on('click', function(event) {
+    event.preventDefault();
+    console.log('startQuizButton ran');
+    renderQuestionPage();
+  });
+}
+
+function accessStore(storeData) {
+  return `
+  <section class="lightbox" aria-label="lightbox">
+    <p class="headline">${storeData[0].question}</p>
+  </section>
+  <form action="" class="js-answer-form">
+    <label for="answer-1" class="hide"></label>
+    <input type="button" class="answerbtn" name="answer-1" data-answer="1" value="${storeData[0].answers.answer1}"></input>
+
+    <label for="answer-2" class="hide"></label>
+    <input type="button" class="answerbtn" name="answer-2" data-answer="2" value="${storeData[0].answers.answer2}"></input>
+
+    <label for="answer-3" class="hide"></label>
+    <input type="button" class="answerbtn" name="answer-3" data-answer="3" value="${storeData[0].answers.answer3}"></input>
+ 
+    <label for="answer-4" class="hide"></label>
+    <input type="button" class="answerbtn" name="answer-4" data-answer="4" value="${storeData[0].answers.answer4}"></input>
+  </form>`
+}
+
+function renderQuestionPage() {
+  // displays question (from bank) and answers for question
+  console.log('renderQuestionPage ran');
+  const renderQuestion = accessStore(STORE);
+  $('.js-view').html(renderQuestion);
+}
+
+function answerButtonPress() {
+  // event listener for user click answer
+  console.log('answerButtonPress ran');
+}
+
+function evaluateAnswer() {
+  // checks if user's answer is correct or incorrect
+  console.log('evaluateAnswer ran');
+}
+
+function displayAnswer() {
+  // displays answer details
+  console.log('displayAnswer ran');
+}
+
+function nextButtonPress() {
+    // event listener for user click next
+    console.log('nextButtonPress ran');
+    // iterates to next question
+}
+
+function displayEndResult() {
+  // 1 of 3 message pages (doom, maybe, yay)
+  console.log('displayAnswer ran'); 
+}
+
+function quizReset() {
+  // resets quiz to start
+  console.log('quizReset ran');
+}
+
+function handleStartQuiz() {
+  startQuizButton();
+  answerButtonPress();
+  evaluateAnswer();
+  displayAnswer();
+  nextButtonPress();
+  displayEndResult();
+  quizReset();
+  // when page loads, call this
+}
+$(handleStartQuiz);
