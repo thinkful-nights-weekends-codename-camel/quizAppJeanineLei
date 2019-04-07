@@ -209,6 +209,7 @@ function accessStore(storeData) {
     <p class="headline">${storeData[0].question}</p>
   </section>
   <form action="" class="js-answer-form">
+  
     <label for="answer-1" class="hide"></label>
     <input type="button" class="answerbtn" name="answer-1" data-answer="1" value="${storeData[0].answers.answer1}"></input>
 
@@ -220,7 +221,7 @@ function accessStore(storeData) {
  
     <label for="answer-4" class="hide"></label>
     <input type="button" class="answerbtn" name="answer-4" data-answer="4" value="${storeData[0].answers.answer4}"></input>
-  </form>`
+  </form>`;
 }
 
 function renderQuestionPage() {
