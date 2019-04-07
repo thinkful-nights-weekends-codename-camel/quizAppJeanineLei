@@ -10,33 +10,103 @@ body {
     url(img/blackandwhitezombiebus.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: grey;
+  height: 100%;
 }
 h1 {
   text-align: center;
 }
 
 .lightbox {
-width: 100%;
+width: 80%;
 height: 2.5rem;
 text-align: center;
 background-color: lightgray;
-margin-top: 2.5%;
-margin-bottom: 2.5%;
+margin: 0 auto;
+padding: 2rem;
 }
 
 .headline {
-  margin: 0px;
+  margin: 0;
   padding-top: 1%;
 }
 
 .startbtn {
-  display: flex;
-  height: 2rem;
+  display: flexbox;
   color: red;
+  width: 50%;
+  font-size: 1.5rem;
+  background-color: #212121;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 33%;
-  border-radius: 3px;
+  margin: 0 auto;
+  padding: 2.5rem;
+  border: 10px solid #212121; 
+  border-radius: 2px;
+  margin-bottom: 5%;  
+  padding-top: .7rem;
 }
+
+.startbtn:hover, .startbtn:active{
+  background-color: #ff1744;
+  color: #FDD835;
+  border: 3px solid #424242;
+} 
+
+@media (min-width: 320px) {
+  h1{
+    width: 80%;
+    text-align: center;
+    font-size: 2rem;
+    margin: 0 auto;
+  }
+  .lightbox {
+    width:70%;
+    margin-top: 9%;
+  }
+  .startbtn{
+    font-size: 1rem;
+    text-align: center;
+    padding-left: 1rem;
+  }
+  }
+  @media (min-width: 600px){
+    .startbtn{
+      font-size: 1.2rem;
+      text-align: center;
+      padding-left: .8rem;
+    }
+  }
+  @media (min-width: 700px){
+    h1{
+      width: 80%;
+      text-align: center;
+      font-size: 2.5em;
+      margin: 0 auto;
+    }
+    .lightbox {
+      width:75%;
+      margin-top: 9%;
+      font-size: 1.5rem;
+    }
+    .startbtn{
+      font-size: 1.5rem;
+      text-align: center;
+      padding-left: .5rem;
+    }
+    @media (min-width: 950px){
+      h1{
+        width: 80%;
+        text-align: center;
+        font-size: 2.8rem;
+        margin: 0 auto;
+      }
+      .lightbox {
+        width:75%;
+        margin-top: 9%;
+        font-size: 2rem;
+      }
+      .startbtn{
+        font-size: 2rem;
+        text-align: center;
+        padding-left: .5rem;
+      }
+    }
