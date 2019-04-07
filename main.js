@@ -160,9 +160,9 @@ const questionBank = [
 
 let score=0;
 let currentQuestion=1;
-// let answerCorrect=true;
-// let resultMessage='';
 let storeIndex=0;
+const survivalThreshold = 9;
+const deathThreshold = 4;
 
 const youWillDie={
   image:"img/walking-dead-zombies-BlackWhite.jpg",
@@ -216,7 +216,6 @@ function renderQuestionPage() {
   console.log('renderQuestionPage ran');
   const renderQuestion = accessStore(questionBank);
   $('.js-view').html(renderQuestion);
-  // answerButtonPress();
 }
 
 function answerButtonPress() {
@@ -312,7 +311,7 @@ function resultDoomed() {
   <p class="result">${youWillDie.message}</p>
   <img src=${youWillDie.image} alt=${youWillDie.imageAltText}>
   </section>
-  <button role="start" class="startbtn" type="button">Retest your knowledge?</button>`;
+  <button role="start" class="resetbtn" type="button">Retest your knowledge?</button>`;
 }
 
 function resultMaybe() {
@@ -321,7 +320,7 @@ function resultMaybe() {
   <p class="result">${youMightLive.message}</p>
   <img src=${youMightLive.image} alt=${youMightLive.imageAltText}>
   </section>
-  <button role="start" class="startbtn" type="button">Retest your knowledge?</button>`;
+  <button role="start" class="resetbtn" type="button">Retest your knowledge?</button>`;
 }
 
 function resultSurvive() {
@@ -330,7 +329,7 @@ function resultSurvive() {
   <p class="result">${congratulations.message}</p>
   <img src=${congratulations.image} alt=${congratulations.imageAltText}>
   </section>
-  <button role="start" class="startbtn" type="button">Retest your knowledge?</button>`;
+  <button role="start" class="resetbtn" type="button">Retest your knowledge?</button>`;
 }
 
 function displayEndResult() {
@@ -339,28 +338,32 @@ function displayEndResult() {
   let displaySurvive = resultSurvive();
   let displayMaybe = resultMaybe();
   let displayDoomed = resultDoomed();
-  if (score > 8) {
+
+  if (score >= survivalThreshold) {   // survival thresholds declared at top
     $('.js-view').html(displaySurvive);
-    quizReset();
-  } else if (score < 7 && score > 4) {
-    $('.js-view').html(displayMaybe);
-    quizReset();
-  } else {
+  } else if (score <= deathThreshold) {
     $('.js-view').html(displayDoomed);
-    quizReset();
+  } else {
+    $('.js-view').html(displayMaybe);
   }
 }
 
 function quizReset() {
   // resets quiz to start
   console.log('quizReset ran');
-
+  $('.js-view').on('click', '.resetbtn', function() {
+    storeIndex=0;
+    score=0;
+    currentQuestion=1;
+    renderQuestionPage();
+  });
 }
 
 function handleStartQuiz() {
   startQuizButton();
   answerButtonPress();
   nextButtonPress();
+  quizReset();
   // when page loads, call this
 }
 $(handleStartQuiz);
