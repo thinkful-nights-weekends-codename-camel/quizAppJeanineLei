@@ -2,14 +2,34 @@ html {
   box-sizing: border-box;
 }
 
+.score{
+  line-height: 2.4rem;
+  font-size: 30px;
+  word-spacing: 3%;
+
+}
+
+.question{
+  margin-top: 5%;
+  width: 100%;
+  font-size: 2.5rem;
+  text-align: center;
+  color: #c62828;
+  background-color: #424242;
+  border: 5px dotted #FDD835;
+  border-radius: 5px;
+  padding: 2%;
+}
 .answerbtn {
   display: flex;
-  height: 2rem;
-  color: black;
-  text-align: center;
+  width: 20%;
+  height: 3rem;
+  color:#FDD835;
+  background-color: #c62828;
+  justify-content: center;
   margin-left: auto;
   margin-right: auto;
   margin-top: 5%;
-  border-radius: 3px;
-}
-
+  border: 5px solid #424242;
+  border-radius: 10px;
+} 

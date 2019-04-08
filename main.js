@@ -192,9 +192,12 @@ function startQuizButton() {
 function accessStore(storeData) {
   return `
   <section class="lightbox" aria-label="lightbox">
-  <h2 class="score">Score:${score} <span>Will You Live?</span> Question:${currentQuestion}/10</h2>
-  <p class="headline">${storeData[storeIndex].question}</p>
+  <p class="score">Score:${score}  <strong>Will You Live?</strong> Question:${currentQuestion}/10</p>
   </section>
+  <div class="question"
+  <p class="js-question">${storeData[storeIndex].question}</p>
+  </div>
+  // </section>
   <form action="" class="js-answer-form">
   
     <label for="answer-1" class="hide"></label>
