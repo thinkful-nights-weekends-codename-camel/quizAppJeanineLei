@@ -1,134 +1,171 @@
 html {
   box-sizing: border-box;
 }
+
 *, *:before, *:after {
   box-sizing: inherit;
+  font-family: 'Kalam', cursive;
 }
+
 body {
-  display: flexbox;
-  background-image: 
-    url(img/blackandwhitezombiebus.jpg);
+  background-image: url(img/blackandwhitezombiebus.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   height: 100%;
 }
+
 h1 {
+  font-family: 'Knewave', cursive;
+  padding-top: 2%;
+  padding-bottom: 1%;
   text-align: center;
-  
 }
 
 .lightbox {
-width: 80%;
-height: 5em;
-text-align: center;
-background-color: #424242;
-color: #c62828;
-margin: 0 auto;
-padding: 2rem;
+  background-color: #424242;
+  color: #c62828;
+  border-radius: 5px;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0 auto;
+  padding: 2%;
+  text-align: center;
+  width: 80%;
 }
 
-.headline {
+p {
   margin: 0;
-  
 }
 
 .startbtn {
-  display: flexbox;
+  display: block;
   color: red;
-  width: 40%;
-  font-size: 2rem;
   background-color: #212121;
-  text-align: center;
-  margin-left:  auto;
+  border: 3px dotted red; 
+  border-radius: 10px;
+  font-family: 'Knewave', cursive;
+  font-size: 1.5em;
+  margin-top: 15%;
+  margin-left: auto;
   margin-right: auto;
-  /* margin-top:%; */
-  padding: 2.5rem;
-  border: 10px solid #212121; 
-  border-radius: 2px; 
-  padding-top: .7rem;
-}
-
-.startbtn:hover, .startbtn:active{
-  background-color: #ff1744;
-  color: #FDD835;
-  border: 3px solid #424242;
-} 
-.nextbtn{
-  display: flex;
-  color: #ff1744;
-  width: 40%;
-  font-size: 2.3rem;
-  background-color: #212121;
+  margin-bottom: 3%;
+  padding: 1.5%;
   text-align: center;
-  margin:0  auto;
-  padding: 1.5rem;
-  border: 7px dotted #FDD835; 
-  border-radius: 10px; 
-  padding-top: .7rem;
+  width: 40%;
 }
 
-.nextbtn:hover, .nextbtn:active{
+.startbtn:hover {
   background-color: #ff1744;
+  border: 3px solid #424242;
   color: #FDD835;
-  border: 3px dotted #424242;
-} 
+  cursor: pointer;
+}
+
 @media (min-width: 320px) {
   h1{
     width: 80%;
     text-align: center;
-    font-size: 2rem;
+    font-size: 150%;
     margin: 0 auto;
   }
+
   .lightbox {
     width:70%;
-    height: 60%;
-    margin-top: 9%;
+    font-size: 120%;
+    margin-top: 6%;
   }
-  .startbtn{
-    font-size: 1rem;
+
+  .startbtn {
+    font-size: 100%;
+    margin-top: 8%;
+    padding: 3%;
+    margin-top: 15%;
     text-align: center;
-    padding-left: 8%;
+    width: 60%;
   }
+}
+
+@media (min-width: 450px) {
+  h1{
+    width: 85%;
+    text-align: center;
+    font-size: 160%;
+    margin: 0 auto;
   }
-  @media (min-width: 600px){
-    .startbtn{
-      font-size: 1.2rem;
-      text-align: center;
-      padding-left: 10%;
-    }
+
+  .lightbox {
+    width:80%;
+    font-size: 130%;
+    margin-top: 6%;
   }
-  @media (min-width: 700px){
+
+  .startbtn {
+    font-size: 120%;
+    margin-top: 20%;
+    padding: 3%;
+    text-align: center;
+    width: 60%;
+  }
+}
+
+  @media (min-width: 600px) {
     h1{
-      width: 80%;
+      width: 90%;
       text-align: center;
-      font-size: 2.5em;
+      font-size: 200%;
       margin: 0 auto;
     }
+  
     .lightbox {
-      width:75%;
-      margin-top: 9%;
+      width:80%;
       font-size: 1.5rem;
+      margin-top: 6%;
+    }
+  
+    .startbtn {
+      font-size: 1.5rem;
+      margin-top: 20%;
+      padding: 2%;
+      text-align: center;
+      width: 60%;
+    }
+  }
+
+  @media (min-width: 750px) {
+    h1{
+      width: 90%;
+      text-align: center;
+      font-size: 230%;
+      margin: 0 auto;
+    }
+
+    .lightbox {
+      width: 75%;
+      font-size: 1.7rem;
+      margin-top: 5%;
     }
     .startbtn{
-      font-size: 1.3rem;
+      font-size: 1.5rem;
+      padding: 3%;
       text-align: center;
-      padding-left: 8%;
+      width: 50%;
     }
-    @media (min-width: 950px){
-      h1{
-        width: 80%;
-        text-align: center;
-        font-size: 2.8rem;
-        margin: 0 auto;
-      }
-      .lightbox {
-        width:75%;
-        margin-top: 9%;
-        font-size: 2rem;
-      }
-      .startbtn{
-        font-size: 1.4rem;
-        padding-left: 8%;
-        padding-bottom: 5%;
-      }
+  }
+
+ @media (min-width: 950px) {
+    h1{
+      width: 100%;
+      text-align: center;
+      font-size: 2.8rem;
+      margin: 0 auto;
     }
+
+    .lightbox {
+      width:75%;
+      margin-top: 2%;
+      font-size: 2rem;
+    }
+    .startbtn{
+      font-size: 2rem;
+    }
+  }
