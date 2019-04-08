@@ -90,7 +90,7 @@ const questionBank = [
             getCorrect: function() {
                 return this.answer1;
             },
-            correctDetail: `MREs or freexe dried camping food. They store well and are simple to prepare for when you're on the go.`
+            correctDetail: `MREs or freeze dried camping food. They store well and are simple to prepare for when you're on the go.`
         },
         imageUrl: "img/mre.jpg",
         imageAlt: "MRE or Meal Ready to Eat kit."
