@@ -90,7 +90,7 @@ const questionBank = [
             getCorrect: function() {
                 return this.answer1;
             },
-            correctDetail: `MREs or freexe dried camping food. They store well and are simple to prepare for when you're on the go.`
+            correctDetail: `MREs or freeze dried camping food. They store well and are simple to prepare for when you're on the go.`
         },
         imageUrl: "img/mre.jpg",
         imageAlt: "MRE or Meal Ready to Eat kit."
@@ -163,6 +163,7 @@ let currentQuestion=1;
 let storeIndex=0;
 const survivalThreshold = 9;
 const deathThreshold = 4;
+const questionBankLength = questionBank.length;
 
 const youWillDie={
   image:"img/walking-dead-zombies-BlackWhite.jpg",
@@ -192,11 +193,12 @@ function startQuizButton() {
 function accessStore(storeData) {
   return `
   <section class="lightbox" aria-label="lightbox">
-  <h2 class="score">Score:${score} <span>Will You Live?</span> Question:${currentQuestion}/10</h2>
-  <p class="headline">${storeData[storeIndex].question}</p>
+  <h2 class="score">Score: ${score} Will You Live? Question: ${currentQuestion}/10</h2>
   </section>
-  <form action="" class="js-answer-form">
-  
+  <section aria-label="question">
+  <p class="question">${storeData[storeIndex].question}</p>
+  </section>
+  <form action="" class="answer-form js-answer-form">
     <label for="answer-1" class="hide"></label>
     <input type="button" class="answerbtn" name="answer-1" data-answer="1" value="${storeData[storeIndex].answers.answer1}"></input>
 
@@ -253,12 +255,12 @@ function answerCorrectDetail() {
   let storeAnswerDetail = storeDetail(questionBank);
   return `
   <section class="lightbox" aria-label="lightbox">
-  <h2 class="score">Score:${score} <span>Will You Live?</span> Question:${currentQuestion}/10</h2>
-    <div class="js-answer-view">
+  <h2 class="score">Score: ${score} Will You Live? Question: ${currentQuestion}/10</h2>
+  </section>
+  <section class="result-view js-answer-view" aria-label="answer-view">
     <!-- one of two messages will display (correct/incorrect) -->
-    <p class="result">"Correct! You've got some survival instinct in ya"</p>
+    <p class="result">Correct! You've got some survival instinct in ya!</p>
     <p class="detail">${storeAnswerDetail}</p>
-    </div>
   </section>
   <button role="next" class="nextbtn" type="button">Keep going!</button>`;
 }
@@ -267,12 +269,12 @@ function answerWrongDetail() {
   let storeAnswerDetail = storeDetail(questionBank);
   return `
   <section class="lightbox" aria-label="lightbox">
-  <h2 class="score">Score:${score} <span>Will You Live?</span> Question:${currentQuestion}/10</h2>
-    <div class="js-answer-view">
+  <h2 class="score">Score: ${score} Will You Live? Question: ${currentQuestion}/10</h2>
+  </section>
+  <section class="result-view js-answer-view" aria-label="answer-view">
     <!-- one of two messages will display (correct/incorrect) -->
-    <p class="result">"Oohhh... You might want to re-think your survival strategy"</p>
+    <p class="result">Oohhh... You might want to re-think your survival strategy!</p>
     <p class="detail">${storeAnswerDetail}</p>
-    </div>
   </section>
   <button role="next" class="nextbtn" type="button">Keep going!</button>`;
 }
@@ -307,27 +309,33 @@ function nextButtonPress() {
 
 function resultDoomed() {
   return `<section class="lightbox" aria-label="lightbox">
-  <h2 class="score">Score:${score} <span>Will You Live?</span> Question:10/10</h2>
-  <p class="result">${youWillDie.message}</p>
-  <img src=${youWillDie.image} alt=${youWillDie.imageAltText}>
+  <h2 class="score">Score: ${score} Will You Live? Question: ${questionBankLength}/10</h2>
+  </section>
+  <section class="result-final" aria-label="final-result">
+  <p class="result-message">${youWillDie.message}</p>
+  <img class="doomed"src=${youWillDie.image} alt=${youWillDie.imageAltText}>
   </section>
   <button role="start" class="resetbtn" type="button">Retest your knowledge?</button>`;
 }
 
 function resultMaybe() {
   return `<section class="lightbox" aria-label="lightbox">
-  <h2 class="score">Score:${score} <span>Will You Live?</span> Question:10/10</h2>
-  <p class="result">${youMightLive.message}</p>
-  <img src=${youMightLive.image} alt=${youMightLive.imageAltText}>
+  <h2 class="score">Score: ${score} Will You Live? Question: ${questionBankLength}/10</h2>
+  </section>
+  <section class="result-final" aria-label="final-result">
+  <p class="result-message">${youMightLive.message}</p>
+  <img class="maybe" src=${youMightLive.image} alt=${youMightLive.imageAltText}>
   </section>
   <button role="start" class="resetbtn" type="button">Retest your knowledge?</button>`;
 }
 
 function resultSurvive() {
   return `<section class="lightbox" aria-label="lightbox">
-  <h2 class="score">Score:${score} <span>Will You Live?</span> Question:10/10</h2>
-  <p class="result">${congratulations.message}</p>
-  <img src=${congratulations.image} alt=${congratulations.imageAltText}>
+  <h2 class="score">Score: ${score} Will You Live? Question: ${questionBankLength}/10</h2>
+  </section>
+  <section class="result-final" aria-label="final-result">
+  <p class="result-message">${congratulations.message}</p>
+  <img class="survive" src=${congratulations.image} alt=${congratulations.imageAltText}>
   </section>
   <button role="start" class="resetbtn" type="button">Retest your knowledge?</button>`;
 }

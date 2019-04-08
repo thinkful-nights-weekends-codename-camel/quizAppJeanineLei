@@ -1,5 +1,194 @@
-html {
-    box-sizing: border-box;
+
+.doomed {
+  width: 30%;
+}
+
+.maybe {
+  width: 25%;
+}
+
+.survive {
+  width: 20%;
+}
+
+.result-final {
+  color: #c62828;
+  background-color: #424242;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 4%;
+  padding: 2.5%;
+  text-align: center;
+  width: 100%;
+}
+
+.result-message {
+  margin-bottom: 2%;
+}
+
+.resetbtn {
+  display: block;
+  color: red;
+  background-color: #212121;
+  border: 3px dotted red; 
+  border-radius: 10px;
+  font-family: 'Knewave', cursive;
+  font-size: 1.5em;
+  margin-top: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3%;
+  padding: 1.5%;
+  text-align: center;
+  width: 40%;
+}
+
+.resetbtn:hover {
+  background-color: #ff1744;
+  border: 3px solid #424242;
+  color: #FDD835;
+  cursor: pointer;
+}
+
+@media (min-width: 320px) {
+  .doomed,
+  .maybe {
+    width: 75%;
+  }
+  .survive {
+    width: 60%;
   }
 
-  
+  .result-final {
+    font-size: 110%;
+  }
+
+  .resetbtn {
+    font-size: 100%;
+    padding: 3%;
+    width: 60%;
+  }
+}
+
+@media (min-width: 450px) {
+  .doomed {
+    width: 65%;
+  }
+  .maybe {
+    width: 55%;
+  }
+  .survive {
+    width: 55%;
+  }
+
+  .result-final {
+    font-size: 115%;
+    margin-top: 5%;
+  }
+
+  .resetbtn {
+    font-size: 100%;
+    padding: 4%;
+    width: 65%;
+  }
+}
+
+@media (min-width: 560px) {
+  .maybe {
+    width: 50%;
+  }
+}
+
+@media (min-width: 600px) {
+  .doomed {
+    width: 55%;
+  }
+  .maybe {
+    width: 45%;
+  }
+  .survive {
+    width: 45%;
+  }
+
+  .result-final {
+    font-size: 125%;
+    margin-top: 5%;
+  }
+
+  .resetbtn {
+    font-size: 120%;
+    padding: 4%;
+    width: 60%;
+  }
+}
+
+@media (min-width: 750px) {
+  .doomed {
+    width: 50%;
+  }
+  .maybe {
+    width: 35%;
+  }
+  .survive {
+    width: 35%;
+  }
+
+  .result-final {
+    font-size: 125%;
+    margin-top: 5%;
+  }
+
+  .resetbtn {
+    font-size: 120%;
+    padding: 4%;
+    width: 50%;
+  }
+}
+
+@media (min-width: 950px) {
+  .doomed {
+    width: 45%;
+  }
+  .maybe {
+    width: 30%;
+  }
+  .survive {
+    width: 22%;
+  }
+
+  .result-final {
+    font-size: 150%;
+    margin-bottom: 2%;
+  }
+
+  .resetbtn {
+    font-size: 150%;
+    padding: 3%;
+    width: 40%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .doomed {
+    width: 30%;
+  }
+  .maybe {
+    width: 25%;
+  }
+  .survive {
+    width: 18%;
+  }
+
+  .result-final {
+    font-size: 150%;
+    margin-top: 2%;
+  }
+
+  .resetbtn {
+    font-size: 150%;
+    padding: 2%;
+    width: 30%;
+    margin-bottom: 1%;
+  }
+}
