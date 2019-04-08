@@ -256,7 +256,7 @@ function answerCorrectDetail() {
   let storeAnswerDetail = storeDetail(questionBank);
   return `
   <section class="lightbox" aria-label="lightbox">
-  <h2 class="score">Score:${score} <span>Will You Live?</span> Question:${currentQuestion}/10</h2>
+  <h2 class="score">Score:${score} <strong>Will You Live?</strong> Question:${currentQuestion}/10</h2>
     <div class="js-answer-view">
     <!-- one of two messages will display (correct/incorrect) -->
     <p class="result">"Correct! You've got some survival instinct in ya"</p>
@@ -314,7 +314,7 @@ function resultDoomed() {
   <p class="result">${youWillDie.message}</p>
   <img src=${youWillDie.image} alt=${youWillDie.imageAltText}>
   </section>
-  <button role="start" class="resetbtn" type="button">Retest your knowledge?</button>`;
+  <button role="start" class="startbtn" type="button">Retest?</button>`;
 }
 
 function resultMaybe() {
