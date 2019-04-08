@@ -310,7 +310,7 @@ function nextButtonPress() {
 
 function resultDoomed() {
   return `<section class="lightbox" aria-label="lightbox">
-  <h2 class="score">Score:${score} <span>Will You Live?</span> Question:10/10</h2>
+  <h2 class="score">Score:${score} <strong>Will You Live?</strong> Question:10/10</h2>
   <p class="result">${youWillDie.message}</p>
   <img src=${youWillDie.image} alt=${youWillDie.imageAltText}>
   </section>
@@ -319,7 +319,7 @@ function resultDoomed() {
 
 function resultMaybe() {
   return `<section class="lightbox" aria-label="lightbox">
-  <h2 class="score">Score:${score} <span>Will You Live?</span> Question:10/10</h2>
+  <h2 class="score">Score:${score} <strong>Will You Live?</strong> Question:10/10</h2>
   <p class="result">${youMightLive.message}</p>
   <img src=${youMightLive.image} alt=${youMightLive.imageAltText}>
   </section>
