@@ -3,9 +3,7 @@ html {
   }
 
 .score {
-  margin: 0;
-  padding-top: 1%;
-}
+  margin-top: 0;
 
 .result,
 .detail {
@@ -13,7 +11,26 @@ html {
   background-color: rgb(177, 177, 177);
   padding: 2% 0;
 }
-
+.nextbtn{
+    display: flex;
+    color: #ff1744;
+    width: 40%;
+    font-size: 2.3rem;
+    background-color: #212121;
+    text-align: center;
+    margin:0  auto;
+    padding: 2.5rem;
+    border: 7px dotted #ff1744; 
+    border-radius: 10px; 
+    padding-top: .7rem;
+  }
+  
+  .nextbtn:hover, .nextbtn:active{
+    background-color: #ff1744;
+    color: #FDD835;
+    border: 3px solid #424242;
+  } 
+}
 .startbtn {
   display: flex;
   height: 2rem;

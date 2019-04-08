@@ -195,7 +195,7 @@ function accessStore(storeData) {
   <p class="score">Score:${score}  <strong>Will You Live?</strong> Question:${currentQuestion}/10</p>
   </section>
   <div class="question"
-  <p class="js-question">${storeData[storeIndex].question}</p>
+  <p c">${storeData[storeIndex].question}</p>
   </div>
   // </section>
   <form action="" class="js-answer-form">
